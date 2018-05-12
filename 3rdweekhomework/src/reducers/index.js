@@ -1,5 +1,7 @@
-import word from './reducerWord'
+import currentWord from './reducerWord'
+import guessedLetters from './reducerGuessedLetter'
 
 export default {
-  word
+  currentWord,
+  guessedLetters
 }
