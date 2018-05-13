@@ -3,5 +3,5 @@ import inputArray from './reducerInputArray'
 
 export default {
   currentWord,
-  inputArray
+  inputArray,
 }
