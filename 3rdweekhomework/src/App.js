@@ -3,8 +3,7 @@ import './App.css';
 import NewGameButton from './containers/containerNewGameButton'
 import {currentWord, imputArray} from './reducers/index'
 import SearchBar from './containers/containerSearchLetter'
-import ShowGame from './containers/containerShowUnderscores'
-import WrongGuessCount from './containers/containerWrongGuessCount'
+import GameOver from './containers/containerGameLogic'
 
 
 class App extends Component {
@@ -13,8 +12,7 @@ class App extends Component {
       <div className="App">
       <div>The word has been selected, now make your guess</div>
       <SearchBar />
-      <ShowGame />
-      <WrongGuessCount />
+      <GameOver />
       <NewGameButton />
       </div>
     );

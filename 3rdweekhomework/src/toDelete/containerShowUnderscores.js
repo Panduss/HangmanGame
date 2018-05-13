@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+
 
 class ShowGame extends Component {
 
@@ -29,8 +29,4 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ ShowGame }, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ShowGame)
+export default connect(mapStateToProps)(ShowGame)

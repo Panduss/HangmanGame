@@ -1,33 +1,59 @@
-// import { connect } from 'react-redux';
-// import makeGuess from '../actions/game';
-// import {Component} from 'react';
-//
-// // class GameLogic extends Component {
-// //
-// // export const wrongGuessCount = (word, guesses) => {
-// //   return guesses.filter(guess => word.indexOf(guess) < 0).length
-// // }
-// //
-// // export const wrongGuessLimit = (word, guesses) => {
-// //   return guesses.filter(guess => word.indexOf(guess) < 0).length >= 6
-// // }
-// //
-// // export const isWinner = (word, guesses) => {
-// //   return showGuess(word, guesses) === word.split('').join(' ')
-// // }
-// //
-// // export const gameFinished = (word, guesses) => {
-// //   return (wrongGuessLimit(word, guesses) || isWinner(word, guesses))
-// // }
-//
-// }
-//
-//
-// function mapStateToProps(state) {
-//   return {
-//     word: state.currentWord,
-//     guesses: state.inputArray
-//   };
-// }
-//
-// export default connect(mapStateToProps)(GameLogic)
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+class GameOver extends Component {
+
+showGuess() {
+  const word = this.props.word
+  const guesses = this.props.guesses
+
+     return word.split('').map(letter => (guesses.indexOf(letter) < 0) ? "_" : letter).join(" ");
+   }
+
+wrongGuessCount() {
+  const word = this.props.word
+  const guesses = this.props.guesses
+
+      return guesses.filter(guess => word.indexOf(guess) < 0).length
+    }
+
+wrongGuessLimit () {
+  const word = this.props.word
+  const guesses = this.props.guesses
+    return guesses.filter(guess => word.indexOf(guess) < 0).length >= 6
+  }
+
+isWinner () {
+  const word = this.props.word
+  const guesses = this.props.guesses
+    return this.showGuess(word, guesses) === word.split('').join(' ')
+  }
+
+gameFinished () {
+  const word = this.props.word
+  const guesses = this.props.guesses
+    return (this.wrongGuessLimit(word, guesses) || this.isWinner(word, guesses))
+  }
+
+ render() {
+
+    return(
+      <div>
+      <p className="ShowGame">The word: {this.showGuess()}</p>
+      <p className="ShowGame">You tried: {this.props.guesses}</p>
+      <p className="ShowGame">Mistakes: {this.wrongGuessCount()}/6</p>
+      <p className="Winner">You did good! {this.isWinner()}</p>
+      <p className="FinishGame">Game is over! {this.gameFinished()}</p>
+      </div>
+    )
+  }
+}
+
+function mapStateToProps(state) {
+  return {
+    word: state.currentWord,
+    guesses: state.inputArray
+  };
+}
+
+export default connect(mapStateToProps)(GameOver)

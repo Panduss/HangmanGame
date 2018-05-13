@@ -14,7 +14,7 @@ wrongGuessCount() {
 
     return(
       <div>
-      <p className="ShowGame">Mistakes: {this.wrongGuessCount()}</p>
+      <p className="ShowGame">Mistakes: {this.wrongGuessCount()}/6</p>
 
       </div>
     )

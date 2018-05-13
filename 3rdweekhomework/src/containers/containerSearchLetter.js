@@ -20,6 +20,7 @@ class SearchBar extends Component {
   }
 
 // prevent browser to refresh the page
+// updates state in redux
   onFormSubmit(event) {
     event.preventDefault();
     this.props.makeGuess(this.state.term);
