@@ -1,5 +1,7 @@
 import currentWord from './reducerWord'
+import inputArray from './reducerInputArray'
 
 export default {
-  currentWord
+  currentWord,
+  inputArray
 }
