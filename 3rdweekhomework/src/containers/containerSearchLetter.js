@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreaters } from 'react';
 import { bindActionCreators } from 'redux';
 import { makeGuess } from '../actions/game';
 
@@ -31,9 +30,8 @@ class SearchBar extends Component {
   render() {
     return (
       <form onSubmit={this.onFormSubmit} className="input-group">
-      <span>Type a letter (or more if you are brave)</span>
       <input
-        placeholder="Choose carefully"
+        placeholder="Type 1 letter"
         className="form-control"
         value={this.state.term}
         onChange={this.onInputChange} />

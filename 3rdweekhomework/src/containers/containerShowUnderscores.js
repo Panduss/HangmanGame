@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import GameLogic from '../containers/containerGameLogic'
+import { bindActionCreators } from 'redux';
 
 class ShowGame extends Component {
 
@@ -16,7 +16,7 @@ const guesses = this.props.guesses
     return(
       <div>
       <p className="ShowGame">The word: {this.showGuess()}</p>
-
+      <p className="ShowGame">You tried: {this.props.guesses}</p>
       </div>
     )
   }
@@ -29,4 +29,8 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(ShowGame)
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ ShowGame }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ShowGame)

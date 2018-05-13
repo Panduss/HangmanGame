@@ -1,9 +1,9 @@
-export default (state = '', action) => {
-  switch(action.type) {
+export default (state = [], {type, payload} ) => {
+  switch(type) {
     case 'MAKE_GUESS' :
-      return action.payload;
-      case 'NEW_GAME' :
-      return state = '';
+      return state.concat(payload);
+    case 'NEW_GAME' :
+      return state = [];
     default :
       return state;
     }
