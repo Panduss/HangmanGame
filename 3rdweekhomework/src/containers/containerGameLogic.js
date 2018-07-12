@@ -10,6 +10,12 @@ showGuess() {
      return word.split('').map(letter => (guesses.indexOf(letter) < 0) ? "_" : letter).join(" ");
    }
 
+showTries() {
+  const letters = this.props.guesses
+
+    return letters.join().split('')
+}
+
 wrongGuessCount() {
   const word = this.props.word
   const guesses = this.props.guesses
@@ -40,7 +46,7 @@ gameFinished () {
     return(
       <div>
       <p className="ShowGame">The word: {this.showGuess()}</p>
-      <p className="ShowGame">You tried: {this.props.guesses}</p>
+      <p className="ShowGame">You tried: {this.showTries()}</p>
       <p className="ShowGame">Mistakes: {this.wrongGuessCount()}/6</p>
       <p className="Winner">You did good! {this.isWinner()}</p>
       <p className="FinishGame">Game is over! {this.gameFinished()}</p>
