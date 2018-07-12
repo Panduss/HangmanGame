@@ -1,7 +1,7 @@
-import currentWord from './reducerWord'
-import inputArray from './reducerInputArray'
+import currentWord from './randomWord'
+import guesses from './guesses'
 
 export default {
   currentWord,
-  inputArray,
+  guesses,
 }
