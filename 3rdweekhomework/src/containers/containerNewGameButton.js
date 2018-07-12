@@ -5,7 +5,7 @@ import { newGame } from '../actions/game'
 class NewGameButton extends PureComponent {
 
   startGame = () => {
-   this.props.newGame(2)
+   this.props.newGame()
  }
 
   render() {

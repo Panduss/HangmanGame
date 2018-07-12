@@ -3,14 +3,13 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { makeGuess } from '../actions/game';
 
-
 class SearchBar extends Component {
   constructor(props) {
-    // passing props to be the base constructor
     super(props);
+
     this.onInputChange = this.onInputChange.bind(this);
     this.onFormSubmit = this.onFormSubmit.bind(this);
-    // initial state
+
     this.state = {term: ''};
   }
 
@@ -19,27 +18,47 @@ class SearchBar extends Component {
     this.setState({ term: event.target.value })
   }
 
-// prevent browser to refresh the page
-// updates state in redux
+
   onFormSubmit(event) {
     event.preventDefault();
-    this.props.makeGuess(this.state.term);
+    this.props.makeGuess( this.state.term );
     this.setState({term: ''});
-
   }
 
   render() {
     return (
-      <form onSubmit={this.onFormSubmit} className="input-group">
-      <input
-        placeholder="Type 1 letter"
-        className="form-control"
-        value={this.state.term}
-        onChange={this.onInputChange} />
-      <span className="input-group-btn">
-        <button type="submit" className="btn btn-secondary">Go!</button>
-      </span>
-      </form>
+        <div className="board">
+          <div>
+            <button className="board-tile" onClick={(event) => this.props.makeGuess(event.target.innerHTML)}>a</button>
+            <button className="board-tile" onClick={(event) => this.props.makeGuess(event.target.innerHTML)}>b</button>
+            <button className="board-tile" onClick={(event) => this.props.makeGuess(event.target.innerHTML)}>c</button>
+            <button className="board-tile" onClick={(event) => this.props.makeGuess(event.target.innerHTML)}>d</button>
+            <button className="board-tile" onClick={(event) => this.props.makeGuess(event.target.innerHTML)}>e</button>
+            <button className="board-tile" onClick={(event) => this.props.makeGuess(event.target.innerHTML)}>f</button>
+            <button className="board-tile" onClick={(event) => this.props.makeGuess(event.target.innerHTML)}>g</button>
+            <button className="board-tile" onClick={(event) => this.props.makeGuess(event.target.innerHTML)}>h</button>
+            <button className="board-tile" onClick={(event) => this.props.makeGuess(event.target.innerHTML)}>i</button>
+            <button className="board-tile" onClick={(event) => this.props.makeGuess(event.target.innerHTML)}>j</button>
+            <button className="board-tile" onClick={(event) => this.props.makeGuess(event.target.innerHTML)}>k</button>
+            <button className="board-tile" onClick={(event) => this.props.makeGuess(event.target.innerHTML)}>l</button>
+            <button className="board-tile" onClick={(event) => this.props.makeGuess(event.target.innerHTML)}>m</button>
+          </div>
+          <div>
+            <button className="board-tile" onClick={(event) => this.props.makeGuess(event.target.innerHTML)}>n</button>
+            <button className="board-tile" onClick={(event) => this.props.makeGuess(event.target.innerHTML)}>o</button>
+            <button className="board-tile" onClick={(event) => this.props.makeGuess(event.target.innerHTML)}>p</button>
+            <button className="board-tile" onClick={(event) => this.props.makeGuess(event.target.innerHTML)}>q</button>
+            <button className="board-tile" onClick={(event) => this.props.makeGuess(event.target.innerHTML)}>r</button>
+            <button className="board-tile" onClick={(event) => this.props.makeGuess(event.target.innerHTML)}>s</button>
+            <button className="board-tile" onClick={(event) => this.props.makeGuess(event.target.innerHTML)}>t</button>
+            <button className="board-tile" onClick={(event) => this.props.makeGuess(event.target.innerHTML)}>u</button>
+            <button className="board-tile" onClick={(event) => this.props.makeGuess(event.target.innerHTML)}>v</button>
+            <button className="board-tile" onClick={(event) => this.props.makeGuess(event.target.innerHTML)}>w</button>
+            <button className="board-tile" onClick={(event) => this.props.makeGuess(event.target.innerHTML)}>x</button>
+            <button className="board-tile" onClick={(event) => this.props.makeGuess(event.target.innerHTML)}>y</button>
+            <button className="board-tile" onClick={(event) => this.props.makeGuess(event.target.innerHTML)}>z</button>
+          </div>
+        </div>
     );
   }
 }
