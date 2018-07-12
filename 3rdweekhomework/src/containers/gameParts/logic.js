@@ -13,7 +13,7 @@ showGuess() {
 showTries() {
   const letters = this.props.guesses
 
-    return letters.join().split('')
+    return letters.join(', ')
 }
 
 wrongGuessCount() {
@@ -22,6 +22,7 @@ wrongGuessCount() {
 
       return guesses.filter(guess => word.indexOf(guess) < 0).length
     }
+
 
 wrongGuessLimit () {
   const word = this.props.word
@@ -58,7 +59,7 @@ gameFinished () {
 function mapStateToProps(state) {
   return {
     word: state.currentWord,
-    guesses: state.inputArray
+    guesses: state.guesses
   };
 }
 
