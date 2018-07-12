@@ -31,9 +31,9 @@ const styles = theme => ({
 export default class Game extends Component {
   render() {
     return (
-      <div>
+      <Paper className="container">
       <h1>HANGMAN</h1>
-      <Word />
+      <Word className="randomWord"/>
       <Grid container spacing={24}>
           <Grid item xs>
               <HangedMan />
@@ -45,7 +45,7 @@ export default class Game extends Component {
           </Grid>
       </Grid>
       <NewGameButton />
-      </div>
+      </Paper>
     );
   }
 }

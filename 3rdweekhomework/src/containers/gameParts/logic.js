@@ -10,11 +10,12 @@ showTries() {
   }
 
 wrongGuessCount() {
-  const word = this.props.word
-  const guesses = this.props.guesses
+    const word = this.props.word
+    const guesses = this.props.guesses
 
       let wrongGuess = 0
       let rightGuess = 0
+
       wrongGuess = guesses.filter(guess => word.indexOf(guess) < 0).length
       rightGuess = guesses.length - wrongGuess
       
@@ -41,8 +42,7 @@ gameFinished () {
 
     return(
       <div>
-      <p className="ShowGame">You tried: {this.showTries()}</p>
-      <p className="ShowGame">Mistakes: {this.wrongGuessCount()}/6</p>
+      <p className="ShowGame">You've got {6 - this.wrongGuessCount()} more tries</p>
       {/* <p className="Winner">You did good! {this.isWinner()}</p>
       <p className="FinishGame">Game is over! {this.gameFinished()}</p> */}
       </div>
