@@ -11,10 +11,10 @@ showGuess() {
    }
 
 showTries() {
-  const letters = this.props.guesses
-
-    return letters.join(', ')
-}
+    const letters = this.props.guesses
+    
+      return letters.join(', ')
+  }
 
 wrongGuessCount() {
   const word = this.props.word

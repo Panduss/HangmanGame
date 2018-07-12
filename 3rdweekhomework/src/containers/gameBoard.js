@@ -30,18 +30,21 @@ const styles = theme => ({
 class Game extends Component {
   render() {
     return (
+      <div>
+      <h1>HANGMAN</h1>
       <Grid container spacing={24}>
-          <Grid item={8}>
+          <Grid item xs>
               <HangedMan />
           </Grid>
 
-          <Grid item xs={8} >
+          <Grid item xs>
               <SearchBar  />       
           </Grid>
 
         <GameOver />
         <NewGameButton />
       </Grid>
+      </div>
     );
   }
 }

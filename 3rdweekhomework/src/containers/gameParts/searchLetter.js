@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { makeGuess } from '../../actions/game';
 
+
 class SearchBar extends Component {
 
 	handleSubmit = (e) => {
