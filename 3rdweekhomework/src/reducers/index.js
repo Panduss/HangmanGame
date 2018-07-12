@@ -1,5 +1,5 @@
 import currentWord from './randomWord'
-import guesses from './guesses'
+import guesses from './correct'
 
 export default {
   currentWord,
