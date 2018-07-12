@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import NewGameButton from './gameParts/newGameButton'
 import SearchBar from './gameParts/searchLetter'
-import GameOver from './gameParts/logic'
+import GameBoard from './gameParts/logic'
+import Word from './gameParts/gameWord'
 import HangedMan from './gameParts/hangMan'
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
@@ -32,18 +33,18 @@ class Game extends Component {
     return (
       <div>
       <h1>HANGMAN</h1>
+      <Word />
       <Grid container spacing={24}>
           <Grid item xs>
               <HangedMan />
           </Grid>
 
           <Grid item xs>
-              <SearchBar  />       
+              <SearchBar  />
+              <GameBoard />    
           </Grid>
-
-        <GameOver />
-        <NewGameButton />
       </Grid>
+      <NewGameButton />
       </div>
     );
   }
