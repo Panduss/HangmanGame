@@ -28,7 +28,7 @@ const styles = theme => ({
   },
 });
 
-class Game extends Component {
+export default class Game extends Component {
   render() {
     return (
       <div>
@@ -40,7 +40,7 @@ class Game extends Component {
           </Grid>
 
           <Grid item xs>
-              <SearchBar  />
+              <SearchBar />
               <GameBoard />    
           </Grid>
       </Grid>
@@ -49,5 +49,3 @@ class Game extends Component {
     );
   }
 }
-
-export default Game;

@@ -13,26 +13,29 @@ wrongGuessCount() {
   const word = this.props.word
   const guesses = this.props.guesses
 
-      return guesses.filter(guess => word.indexOf(guess) < 0).length
+      let wrongGuess = 0
+      let rightGuess = 0
+      wrongGuess = guesses.filter(guess => word.indexOf(guess) < 0).length
+      rightGuess = guesses.length - wrongGuess
+      
+      console.log(wrongGuess, "wrong ones")
+      console.log(rightGuess, "right guess")
+      return wrongGuess
     }
 
-wrongGuessLimit () {
+isWinner () {
   const word = this.props.word
   const guesses = this.props.guesses
-    return guesses.filter(guess => word.indexOf(guess) < 0).length >= 6
+  const count = guesses.filter(guess => word.indexOf(guess) > 0).length
+  return window.alert("hey, it's a hit!")
+  console.log(count, "are these correct?")
   }
 
-// isWinner () {
-//   const word = this.props.word
-//   const guesses = this.props.guesses
-//     return this.showGuess(word, guesses) === word.split('').join(' ')
-//   }
-
-// gameFinished () {
-//   const word = this.props.word
-//   const guesses = this.props.guesses
-//     return (this.wrongGuessLimit(word, guesses) || this.isWinner(word, guesses))
-//   }
+gameFinished () {
+  const word = this.props.word
+  const guesses = this.props.guesses
+    return (this.wrongGuessLimit(word, guesses) || this.isWinner(word, guesses))
+  }
 
  render() {
 
