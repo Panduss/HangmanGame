@@ -16,16 +16,22 @@ this.state = {
 showGuess() {
   const word = this.props.word
   const guesses = this.props.guesses
+  const gameOver = this.props.gameOver
 
-     const randomWord =  word.split('').map(letter => (guesses.indexOf(letter) < 0) ? "_" : letter).join(" ");
+  const randomWord =  word.split('').map(letter => (guesses.indexOf(letter) < 0) ? "_" : letter).join(" ")
 
-     if( randomWord.indexOf('_') < 0 ) {
 
-      swal("Awesome! You figured it out!", {
-          icon: "success",
-        })
-        this.props.finishGame()
-      }
+  if( randomWord.indexOf('_') < 0 ) {
+    swal("Awesome! You figured it out!", {
+        icon: "success",
+      })
+      this.props.finishGame()
+    }
+
+  if(gameOver === true) {
+    return word
+  }
+
 
      console.log(randomWord, "randomWord")
      return randomWord
