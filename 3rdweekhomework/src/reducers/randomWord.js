@@ -1,7 +1,5 @@
 import WordList from '../lib/words'
 
-
-
 const initialState = WordList[Math.floor(Math.random() * WordList.length)];
 
 export default function(state = initialState, {type} ) {

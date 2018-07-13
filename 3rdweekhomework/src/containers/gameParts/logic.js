@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import swal from 'sweetalert'
 
 class GameBoard extends Component {
 
@@ -12,39 +13,25 @@ showTries() {
 wrongGuessCount() {
     const word = this.props.word
     const guesses = this.props.guesses
+    let wrongGuess = 0
+    let rightGuess = 0
 
-      let wrongGuess = 0
-      let rightGuess = 0
-
-      wrongGuess = guesses.filter(guess => word.indexOf(guess) < 0).length
-      rightGuess = guesses.length - wrongGuess
-      
-      console.log(wrongGuess, "wrong ones")
-      console.log(rightGuess, "right guess")
+    wrongGuess = guesses.filter(guess => word.indexOf(guess) < 0).length
+    rightGuess = guesses.length - wrongGuess
+    console.log(wrongGuess, "wrong ones")
+    console.log(rightGuess, "right guess")
+    if(wrongGuess<6) {
       return wrongGuess
+    } else {
+      return swal("Oops", "Something went wrong!", "error")
+      }
     }
-
-isWinner () {
-  const word = this.props.word
-  const guesses = this.props.guesses
-  const count = guesses.filter(guess => word.indexOf(guess) > 0).length
-  return window.alert("hey, it's a hit!")
-  console.log(count, "are these correct?")
-  }
-
-gameFinished () {
-  const word = this.props.word
-  const guesses = this.props.guesses
-    return (this.wrongGuessLimit(word, guesses) || this.isWinner(word, guesses))
-  }
 
  render() {
 
-    return(
+    return (
       <div>
       <p className="ShowGame">You've got {6 - this.wrongGuessCount()} more tries</p>
-      {/* <p className="Winner">You did good! {this.isWinner()}</p>
-      <p className="FinishGame">Game is over! {this.gameFinished()}</p> */}
       </div>
     )
   }

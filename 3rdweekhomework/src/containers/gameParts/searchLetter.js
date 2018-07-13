@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { Button, createMuiTheme } from '@material-ui/core';
 import alphabet from '../../lib/alphabet'
 import {makeGuess} from '../../actions/game'
 import { bindActionCreators } from 'redux';
