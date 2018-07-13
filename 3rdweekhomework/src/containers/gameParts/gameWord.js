@@ -1,13 +1,34 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import swal from 'sweetalert'
+import {finishGame} from '../../actions/game'
+
 
 class Word extends Component {
+  constructor(props) {
+    super(props);
+
+this.state = {
+  gameOver: false,
+  };
+}
 
 showGuess() {
   const word = this.props.word
   const guesses = this.props.guesses
 
-     return word.split('').map(letter => (guesses.indexOf(letter) < 0) ? "_" : letter).join(" ");
+     const randomWord =  word.split('').map(letter => (guesses.indexOf(letter) < 0) ? "_" : letter).join(" ");
+
+     if( randomWord.indexOf('_') < 0 ) {
+
+      swal("Awesome! You figured it out!", {
+          icon: "success",
+        })
+        this.props.finishGame()
+      }
+
+     console.log(randomWord, "randomWord")
+     return randomWord
    }
 
    render() {
@@ -23,8 +44,13 @@ showGuess() {
 function mapStateToProps(state) {
   return {
     word: state.currentWord,
-    guesses: state.guesses
+    guesses: state.guesses,
+    gameOver: state.gameOver
   };
 }
 
-export default connect(mapStateToProps)(Word)
+// const mapDispatchToProps = {
+//   finishGame
+// }
+
+export default connect(mapStateToProps, {finishGame})(Word)

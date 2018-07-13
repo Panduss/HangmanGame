@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import swal from 'sweetalert'
+import { newGame } from '../../actions/game'
 
 class GameBoard extends Component {
 
+startGame = () => {
+    this.props.newGame()
+  }
+
 showTries() {
     const letters = this.props.guesses
-    
       return letters.join(', ')
   }
 
@@ -22,16 +26,26 @@ wrongGuessCount() {
     console.log(rightGuess, "right guess")
     if(wrongGuess<6) {
       return wrongGuess
-    } else {
-      return swal("Oops", "Something went wrong!", "error")
+    } 
+
+    if( rightGuess === word.length ) {
+      swal("Awesome! You did it!", {
+          icon: "success",
+        });
+
       }
-    }
+    
+    if( rightGuess === word.length ) {
+        swal( 'Ooops!', "You haven't got any tries left!", "error")
+  
+        }
+  }
 
  render() {
 
     return (
       <div>
-      <p className="ShowGame">You've got {6 - this.wrongGuessCount()} more tries</p>
+      <p className="ShowGame">You've got {6 - this.wrongGuessCount() || 0 } more tries</p>
       </div>
     )
   }
@@ -44,4 +58,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(GameBoard)
+export default connect(mapStateToProps, {newGame})(GameBoard)
