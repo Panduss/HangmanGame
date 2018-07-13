@@ -20,7 +20,7 @@ class SearchBar extends Component {
               type="button"
               key={index}
               onClick={() => this.handleBtnClick(letter)}
-              disabled={this.props.guesses.includes(letter)}
+              disabled={this.props.guesses.includes(letter) || this.props.gameOver === true }
               >
               {letter}
           </button>
@@ -32,7 +32,8 @@ class SearchBar extends Component {
 
 const mapStateToProps = (state) => {
   return {
-  guesses: state.guesses
+  guesses: state.guesses,
+  gameOver: state.gameOver
   }
 }
 
