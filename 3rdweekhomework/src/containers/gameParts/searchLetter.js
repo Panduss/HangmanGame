@@ -13,7 +13,7 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <div>
+      <div className="keyboardBox">
       {alphabet.map( (letter, index) =>
           <button 
               className="keyboard"

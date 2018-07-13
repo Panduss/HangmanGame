@@ -31,13 +31,11 @@ wrongGuessCount() {
 
  render() {
    const {gameOver} = this.props
-
-   console.log(gameOver, "game is over?")
     
     if(gameOver === true) {
         return (
           <div>
-            <p> Game is over! </p>
+            <p> Game is over! You can start a new game, if you like! 👻 ✌️ </p>
           </div>
         )
     } else {

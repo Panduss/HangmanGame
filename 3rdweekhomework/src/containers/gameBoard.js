@@ -11,7 +11,7 @@ export default class Game extends Component {
   render() {
     return (
       <Paper className="container">
-      <h1>HANGMAN</h1>
+      <h3 className='title'> HANGMAN by Zsuzsi </h3>
       <Word className="randomWord"/>
       <Grid container spacing={24}>
 

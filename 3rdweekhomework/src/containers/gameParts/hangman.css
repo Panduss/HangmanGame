@@ -4,6 +4,10 @@ img {
     max-width: 350px;
 }
 
+.emojiPic {
+    max-width: 2px;
+}
+
 .keyboard {
     min-width: 30px;
     min-height: 30px;
@@ -16,7 +20,8 @@ img {
 }
 
 .keyboardBox {
-    padding: 20px;
+    margin: 0 50px 0 0;
+    padding: 10px;
 }
 
 .newGame {
@@ -29,8 +34,12 @@ img {
     background-color: #ffffff
 }
 
-h1 {
-    margin-bottom: 0;
+h3.title {
+    margin:20px 0 0 0;
+}
+p.showGame {
+    margin-top: 0;
+    padding: 0;
 }
 
 h1.randomWord {
