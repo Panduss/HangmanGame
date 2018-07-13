@@ -6,7 +6,7 @@ export default (state = [], {type, payload} ) => {
       return state.concat(payload);
 
     case 'NEW_GAME' :
-      return state = [];
+      return state = []
 
     default :
       return state;

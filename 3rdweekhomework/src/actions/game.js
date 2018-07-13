@@ -6,6 +6,7 @@ export const GAME_OVER = 'GAME_OVER'
 export function newGame() {
   return {
     type: NEW_GAME,
+    payload: {gameOver: false}
   }
 }
 
