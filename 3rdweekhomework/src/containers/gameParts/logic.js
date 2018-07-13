@@ -1,14 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import swal from 'sweetalert'
 
-class GameOver extends Component {
-
-showGuess() {
-  const word = this.props.word
-  const guesses = this.props.guesses
-
-     return word.split('').map(letter => (guesses.indexOf(letter) < 0) ? "_" : letter).join(" ");
-   }
+class GameBoard extends Component {
 
 showTries() {
     const letters = this.props.guesses
@@ -17,40 +11,27 @@ showTries() {
   }
 
 wrongGuessCount() {
-  const word = this.props.word
-  const guesses = this.props.guesses
+    const word = this.props.word
+    const guesses = this.props.guesses
+    let wrongGuess = 0
+    let rightGuess = 0
 
-      return guesses.filter(guess => word.indexOf(guess) < 0).length
+    wrongGuess = guesses.filter(guess => word.indexOf(guess) < 0).length
+    rightGuess = guesses.length - wrongGuess
+    console.log(wrongGuess, "wrong ones")
+    console.log(rightGuess, "right guess")
+    if(wrongGuess<6) {
+      return wrongGuess
+    } else {
+      return swal("Oops", "Something went wrong!", "error")
+      }
     }
-
-
-wrongGuessLimit () {
-  const word = this.props.word
-  const guesses = this.props.guesses
-    return guesses.filter(guess => word.indexOf(guess) < 0).length >= 6
-  }
-
-isWinner () {
-  const word = this.props.word
-  const guesses = this.props.guesses
-    return this.showGuess(word, guesses) === word.split('').join(' ')
-  }
-
-gameFinished () {
-  const word = this.props.word
-  const guesses = this.props.guesses
-    return (this.wrongGuessLimit(word, guesses) || this.isWinner(word, guesses))
-  }
 
  render() {
 
-    return(
+    return (
       <div>
-      <p className="ShowGame">The word: {this.showGuess()}</p>
-      <p className="ShowGame">You tried: {this.showTries()}</p>
-      <p className="ShowGame">Mistakes: {this.wrongGuessCount()}/6</p>
-      <p className="Winner">You did good! {this.isWinner()}</p>
-      <p className="FinishGame">Game is over! {this.gameFinished()}</p>
+      <p className="ShowGame">You've got {6 - this.wrongGuessCount()} more tries</p>
       </div>
     )
   }
@@ -63,4 +44,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(GameOver)
+export default connect(mapStateToProps)(GameBoard)

@@ -1,3 +1,44 @@
 img {
-    width: 50%;
+    padding-left: 20%;
+    width: 80%;
+    max-width: 350px;
 }
+
+.keyboard {
+    min-width: 30px;
+    min-height: 30px;
+    margin: 3px;
+    padding: 1px;
+    border-radius: 50% 50% 50% 50%;
+    font-family: 'Gaegu', cursive;
+    font-size: 1em;
+    background-color: #B2DFDB
+}
+
+.keyboardBox {
+    padding: 20px;
+}
+
+.newGame {
+    font-family: 'Gaegu', cursive;
+    font-size: 1em;
+    background-color: #B2DFDB
+}
+
+.keyboard:disabled {
+    background-color: #ffffff
+}
+
+h1 {
+    margin-bottom: 0;
+}
+
+h1.randomWord {
+    margin: 0;
+}
+
+.container {
+    max-width: 70%;
+    margin: 0 auto 0 auto;
+}
+
